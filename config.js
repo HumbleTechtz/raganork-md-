@@ -85,7 +85,7 @@ const baseConfig = {
   isRailway,
   AUTOMUTE_MSG:
     process.env.AUTOMUTE_MSG || "_Group automuted!_\n_(edit AUTOMUTE_MSG)_",
-  ANTIWORD_WARN: process.env.ANTIWORD_WARN || "",
+  ANTIWORD_WARN: process.env.ANTIWORD_WARN || "false",
   ANTI_SPAM: process.env.ANTI_SPAM || "919074309534-1632403322@g.us",
   MULTI_HANDLERS: convertToBool(process.env.MULTI_HANDLERS) || false,
   DISABLE_START_MESSAGE:
@@ -121,8 +121,8 @@ const baseConfig = {
   NOT_ALLOWED: process.env.NOT_ALLOWED || "852",
   CHATBOT: process.env.CHATBOT || "off",
   HANDLERS: process.env.HANDLERS || ".,",
-  STICKER_DATA: process.env.STICKER_DATA || "Raganork",
-  BOT_NAME: process.env.BOT_NAME || "Raganork",
+  STICKER_DATA: process.env.STICKER_DATA || "꧁༺𝙑𝙊𝙇𝙏𝙍𝙊𝙉✻𝘽𝙊𝙔༻꧂",
+  BOT_NAME: process.env.BOT_NAME || "꧁༺𝙑𝙊𝙇𝙏𝙍𝙊𝙉✻𝘽𝙊𝙔༻꧂",
   AUDIO_DATA:
     process.env.AUDIO_DATA === undefined || process.env.AUDIO_DATA === "private"
       ? "default"
@@ -132,7 +132,7 @@ const baseConfig = {
   MODE: process.env.MODE || "private",
   WARN: process.env.WARN || "4",
   ANTILINK_WARN: process.env.ANTILINK_WARN || "",
-  ANTI_DELETE: convertToBool(process.env.ANTI_DELETE) || false,
+  ANTI_DELETE: convertToBool(process.env.ANTI_DELETE) || true,
   SUDO: process.env.SUDO || "",
   LANGUAGE: process.env.LANGUAGE || "english",
   ACR_A: "ff489a0160188cf5f0750eaf486eee74",
@@ -282,3 +282,4 @@ Object.defineProperty(config, "debug", {
 });
 
 module.exports = config;
+
