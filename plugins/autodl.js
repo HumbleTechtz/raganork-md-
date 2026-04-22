@@ -138,7 +138,7 @@ Module({ on: "text", fromMe }, async (message) => {
               const result = await downloadAudio(url);
               audioPath = result.path;
 
-              const mp3Path = await convertM4aToMp3(audioPath);
+              const mp3Path = await convertM4aToMp3(audioPath, { title: result?.title, artist: result?.info?.channel?.name, thumbnail: result?.info?.thumbnail });
               audioPath = mp3Path;
 
               await message.edit(
@@ -300,14 +300,14 @@ Module({ on: "text", fromMe }, async (message) => {
         if (allMediaUrls.length === 1) {
           await message.sendMessage(
             { url: allMediaUrls[0] },
-            /\.(jpg|jpeg|png|webp)(\?|$)/i.test(allMediaUrls[0])
+            /\.(jpg|jpeg|png|webp|heic)(\?|$)/i.test(allMediaUrls[0])
               ? "image"
               : "video",
             { quoted: quotedMessage }
           );
         } else {
           const albumObject = allMediaUrls.map((mediaUrl) => {
-            return /\.(jpg|jpeg|png|webp)(\?|$)/i.test(mediaUrl)
+            return /\.(jpg|jpeg|png|webp|heic)(\?|$)/i.test(mediaUrl)
               ? { image: mediaUrl }
               : { video: mediaUrl };
           });
@@ -422,7 +422,7 @@ Module({ on: "text", fromMe }, async (message) => {
           const result = await downloadAudio(video.url);
           audioPath = result.path;
 
-          const mp3Path = await convertM4aToMp3(audioPath);
+          const mp3Path = await convertM4aToMp3(audioPath, { title: result?.title, artist: result?.info?.channel?.name, thumbnail: result?.info?.thumbnail });
           audioPath = mp3Path;
 
           await message.edit(
